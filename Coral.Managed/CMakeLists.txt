@@ -1,0 +1,24 @@
+set(TARGET_NAME CoralManaged)
+
+file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
+  ${CMAKE_CURRENT_SOURCE_DIR}/Source/**.cs
+)
+
+add_library(${TARGET_NAME} SHARED ${SRC_FILES})
+
+target_include_directories(${TARGET_NAME} PRIVATE
+  ${CMAKE_CURRENT_SOURCE_DIR}/Source
+)
+
+target_compile_options(${TARGET_NAME} PUBLIC "/unsafe")
+
+set_target_properties(
+  ${TARGET_NAME} PROPERTIES
+  VS_GLOBAL_ResolveNuGetPackages "false"
+  CXX_VISIBILITY_PRESET hidden
+  VISIBILITY_INLINES_HIDDEN YES
+  VERSION "${PROJECT_VERSION}"
+  SOVERSION "${PROJECT_VERSION_MAJOR}"
+  OUTPUT_NAME ${TARGET_NAME}
+  DEBUG_POSTFIX "d"
+)
