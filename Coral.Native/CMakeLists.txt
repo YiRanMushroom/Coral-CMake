@@ -13,12 +13,11 @@ add_library(${TARGET_NAME} STATIC ${SRC_FILES})
 
 target_precompile_headers(${TARGET_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Source/CoralPCH.hpp)
 
-target_compile_definitions(${TARGET_NAME} PUBLIC "_CRT_SECURE_NO_WARNINGS")
+if(WIN32)
+  set(CORAL_PLAT "CORAL_WINDOWS")
+endif()
 
-
-includedirs { "Source/", "Include/Coral/" }
-externalincludedirs { "../NetCore/" }
-
+target_compile_definitions(${TARGET_NAME} PUBLIC "_CRT_SECURE_NO_WARNINGS" "${CORAL_PLAT}")
 
 target_include_directories(${TARGET_NAME} PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/Include/Coral

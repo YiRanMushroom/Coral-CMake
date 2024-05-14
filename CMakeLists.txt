@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.19)
 
+set(CMAKE_CXX_STANDARD 20)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE BOOL "" FORCE)
 
 if(NOT CMAKE_DOTNET_SDK)
   set(CMAKE_DOTNET_SDK "Microsoft.NET.Sdk")
@@ -16,6 +18,7 @@ endif()
 
 set(CMAKE_DOTNET_TARGET_FRAMEWORK ${CORAL_DOTNET_VERSION})
 set(CMAKE_CSharp_FLAGS ${CORAL_CSHARP_FLAGS})
+set(CMAKE_VS_NUGET_PACKAGE_RESTORE ON)
 
 project(Coral
         VERSION 1.0.0
@@ -27,17 +30,17 @@ project(Coral
 option(CORAL_BUILD_TESTS "Build the tests" OFF)
 option(CORAL_BUILD_EXAMPLES "Build the tests" OFF)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE BOOL "" FORCE)
-
-#add_subdirectory(Coral.Native)
+add_subdirectory(Coral.Native)
 add_subdirectory(Coral.Managed)
 
 if(CORAL_BUILD_TESTS)
-    add_subdirectory(Tests/Testing.Native)
-    add_subdirectory(Tests/Testing.Managed)
+#    TODO
+#    add_subdirectory(Tests/Testing.Native)
+#    add_subdirectory(Tests/Testing.Managed)
 endif()
 
 if(CORAL_BUILD_EXAMPLES)
-    add_subdirectory(Example/Example.Native)
-    add_subdirectory(Example/Example.Managed)
+#    TODO
+#    add_subdirectory(Example/Example.Native)
+#    add_subdirectory(Example/Example.Managed)
 endif()
