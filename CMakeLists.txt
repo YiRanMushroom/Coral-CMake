@@ -10,6 +10,9 @@ option(CORAL_BUILD_TESTS    "Build the tests" OFF)
 option(CORAL_BUILD_TESTS    "Build the tests" OFF)
 option(CORAL_BUILD_EXAMPLES "Build the tests" OFF)
 
+# Override for custom CXX_FLAGS
+set(CORAL_NATIVE_MSVC_FLAGS "/WX")
+
 if(CORAL_BUILD_NATIVE)
   add_subdirectory(Coral.Native)
 endif()

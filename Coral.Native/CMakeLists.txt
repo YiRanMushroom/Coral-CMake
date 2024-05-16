@@ -27,6 +27,10 @@ endif()
 
 target_compile_definitions(${TARGET_NAME} PUBLIC "_CRT_SECURE_NO_WARNINGS" "${CORAL_PLAT}")
 
+target_compile_options(${TARGET_NAME} PRIVATE ${CORAL_NATIVE_MSVC_FLAGS})
+
+message(STATUS "Coral.Native compiling with CXX flags: ${CORAL_NATIVE_MSVC_FLAGS}")
+
 target_include_directories(${TARGET_NAME} PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/Include/Coral
   ${CMAKE_CURRENT_SOURCE_DIR}/Include
