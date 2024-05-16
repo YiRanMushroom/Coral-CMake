@@ -21,12 +21,14 @@ target_compile_definitions(${TARGET_NAME} PUBLIC "_CRT_SECURE_NO_WARNINGS" "${CO
 
 target_include_directories(${TARGET_NAME} PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/Include/Coral
+  ${CMAKE_CURRENT_SOURCE_DIR}/Include
   ${CMAKE_CURRENT_SOURCE_DIR}/Source
   ${CMAKE_CURRENT_SOURCE_DIR}/../NetCore
 )
 
 target_include_directories(${TARGET_NAME} PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/Include/Coral
+  ${CMAKE_CURRENT_SOURCE_DIR}/Include
   ${CMAKE_CURRENT_SOURCE_DIR}/Source
   ${CMAKE_CURRENT_SOURCE_DIR}/../NetCore
 )
