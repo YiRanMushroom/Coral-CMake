@@ -1,4 +1,11 @@
-set(TARGET_NAME CoralNative)
+project(CoralNative
+  VERSION 1.0.0
+  DESCRIPTION "C++/C# wrapper around the .NET CoreCLR library, the purpose of Coral is to provide a native interface similar to Mono, but in a more modern style, and using .NET Core instead of .NET Framework "
+  HOMEPAGE_URL "https://github.com/StudioCherno/Coral"
+  LANGUAGES CXX C
+)
+
+set(TARGET_NAME Coral.Native)
 
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
   ${CMAKE_CURRENT_SOURCE_DIR}/Include/**.h
@@ -10,6 +17,7 @@ file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
 )
 
 add_library(${TARGET_NAME} STATIC ${SRC_FILES})
+add_library(CoralNative ALIAS ${TARGET_NAME})
 
 target_precompile_headers(${TARGET_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Source/CoralPCH.hpp)
 
