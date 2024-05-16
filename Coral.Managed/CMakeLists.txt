@@ -1,10 +1,11 @@
-set(TARGET_NAME CoralManaged)
+set(TARGET_NAME Coral.Managed)
 
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
   ${CMAKE_CURRENT_SOURCE_DIR}/Source/**.cs
 )
 
 add_library(${TARGET_NAME} SHARED ${SRC_FILES})
+add_library(CoralManaged ALIAS ${TARGET_NAME})
 
 target_include_directories(${TARGET_NAME} PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/Source
