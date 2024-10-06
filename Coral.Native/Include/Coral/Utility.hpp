@@ -3,7 +3,9 @@
 #include "Core.hpp"
 
 namespace Coral {
-
+	
+	class String;
+	
 	enum class ManagedType
 	{
 		Unknown,
@@ -54,7 +56,7 @@ namespace Coral {
 			return ManagedType::Double;
 		else if constexpr (std::same_as<TArg, bool>)
 			return ManagedType::Bool;
-		else if constexpr (std::same_as<TArg, std::string>)
+		else if constexpr (std::same_as<TArg, std::string> || std::same_as<TArg, std::wstring> || std::same_as<TArg, String>)
 			return ManagedType::String;
 		else
 			return ManagedType::Unknown;
