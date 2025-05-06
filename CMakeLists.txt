@@ -11,7 +11,7 @@ project(Coral
 )
 
 option(CORAL_BUILD_NATIVE   "Builds the Native Coral library" ON)
-option(CORAL_BUILD_MANAGED  "Builds the Managed Coral library" ON)
+option(CORAL_BUILD_MANAGED  "Builds the Managed Coral library" OFF)
 option(CORAL_BUILD_TESTS    "Build the tests" OFF)
 option(CORAL_BUILD_TESTS    "Build the tests" OFF)
 option(CORAL_BUILD_EXAMPLES "Build the tests" OFF)
@@ -19,7 +19,7 @@ option(CORAL_BUILD_EXAMPLES "Build the tests" OFF)
 # Override for custom CXX_FLAGS
 # Note: If passing a string with flags, make sure to separate every flag with a semicolon ;
 if(NOT CORAL_NATIVE_MSVC_FLAGS)
-  set(CORAL_NATIVE_MSVC_FLAGS "/WX")
+#  set(CORAL_NATIVE_MSVC_FLAGS "/WX")
 endif()
 
 if(CORAL_BUILD_NATIVE)
